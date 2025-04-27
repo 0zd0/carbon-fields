@@ -243,9 +243,11 @@ class Loader {
 	public function initialize_ui() {
 		?>
 			<script>
-				if ( typeof cf.core.initialize === 'function' ) {
-					cf.core.initialize();
-				}
+				document.addEventListener('DOMContentLoaded', () => {
+					if (typeof cf.core.initialize === 'function') {
+						cf.core.initialize();
+					}
+				})
 			</script>
 		<?php
 	}
