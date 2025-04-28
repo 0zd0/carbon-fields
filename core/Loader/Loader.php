@@ -210,8 +210,8 @@ class Loader {
 		$this->enqueue_style( 'metaboxes' );
 
 		$this->enqueue_script( 'vendor', array( 'wp-polyfill', 'jquery', 'lodash' ) );
-		$this->enqueue_script( 'core', array( 'carbon-fields-vendor' ) );
-		$this->enqueue_script( 'metaboxes', array( 'carbon-fields-vendor', 'carbon-fields-core' ) );
+		$this->enqueue_script( 'core', array( 'carbon-fields-vendor', 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-html-entities', 'moment', 'lodash', 'wp-plugins' ) );
+		$this->enqueue_script( 'metaboxes', array( 'carbon-fields-vendor', 'carbon-fields-core', 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-html-entities', 'moment', 'lodash', 'wp-plugins' ) );
 
 		if ( $this->get_assets_context() === 'gutenberg' ) {
 			$this->enqueue_style( 'blocks' );

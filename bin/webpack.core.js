@@ -20,8 +20,8 @@ const config = {
 		libraryTarget: 'this'
 	},
 	externals: {
-		'react': [ 'cf', 'vendor', 'react' ],
-		'react-dom': [ 'cf', 'vendor', 'react-dom' ],
+		// 'react': [ 'cf', 'vendor', 'react' ],
+		// 'react-dom': [ 'cf', 'vendor', 'react-dom' ],
 		'refract-callbag': [ 'cf', 'vendor', 'refract-callbag' ],
 		'callbag-basics': [ 'cf', 'vendor', 'callbag-basics' ],
 		'classnames': [ 'cf', 'vendor', 'classnames' ],
@@ -43,7 +43,14 @@ module.exports = [
 			path: paths.classicBuildPath
 		},
 		externals: Object.assign( {}, wpPackages.proxyExternals, {
-			'lodash': [ 'cf', 'vendor', 'lodash' ]
+			'lodash': [ 'cf', 'vendor', 'lodash' ],
+			'react-dom': ['ReactDOM'],
+			'react': ['React'],
+			'@wordpress/element': ['wp', 'element'],
+			'@wordpress/data': ['wp', 'data'],
+			'@wordpress/i18n': ['wp', 'i18n'],
+			'@wordpress/hooks': ['wp', 'hooks'],
+			'@wordpress/compose': ['wp', 'compose'],
 		} ),
 		plugins: [
 			new webpack.ProvidePlugin( {
