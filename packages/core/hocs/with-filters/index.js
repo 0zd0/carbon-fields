@@ -2,7 +2,7 @@
  * External dependencies.
  */
 import { debounce, uniqueId } from 'lodash';
-import {Children, Component} from '@wordpress/element';
+import { Component } from '@wordpress/element';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import {
 	addAction,
@@ -62,12 +62,7 @@ export default function withFilters( hookName ) {
 
 			/** @inheritdoc */
 			render() {
-				const fixedChildren = Children.toArray(this.props.children).map((child) => {
-					return child
-				})
-				return <this.Component { ...this.props } >
-					{ fixedChildren }
-				</this.Component>;
+				return <this.Component { ...this.props } />;
 			}
 		};
 	}, 'withFilters' );

@@ -16,6 +16,8 @@ use Carbon_Fields\Service\REST_API_Service;
  */
 class Loader {
 
+	private const DEFAULT_JS_DEPS = ['wp-i18n', 'wp-element', 'wp-blocks', 'wp-html-entities', 'moment', 'lodash' ];
+
 	protected $sidebar_manager;
 
 	protected $container_repository;
@@ -210,8 +212,8 @@ class Loader {
 		$this->enqueue_style( 'metaboxes' );
 
 		$this->enqueue_script( 'vendor', array( 'wp-polyfill', 'jquery', 'lodash' ) );
-		$this->enqueue_script( 'core', array( 'carbon-fields-vendor', 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-html-entities', 'moment', 'lodash', 'wp-plugins' ) );
-		$this->enqueue_script( 'metaboxes', array( 'carbon-fields-vendor', 'carbon-fields-core', 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-html-entities', 'moment', 'lodash', 'wp-plugins' ) );
+		$this->enqueue_script( 'core', array( 'carbon-fields-vendor', ...self::DEFAULT_JS_DEPS ) );
+		$this->enqueue_script( 'metaboxes', array( 'carbon-fields-vendor', 'carbon-fields-core', ...self::DEFAULT_JS_DEPS ) );
 
 		if ( $this->get_assets_context() === 'gutenberg' ) {
 			$this->enqueue_style( 'blocks' );

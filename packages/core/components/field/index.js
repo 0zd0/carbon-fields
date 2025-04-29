@@ -12,7 +12,6 @@ import { kebabCase } from 'lodash';
 import './style.scss';
 import Disabled from '../../components/disabled';
 import withFilters from '../../hocs/with-filters';
-import {Children} from "@wordpress/element";
 
 /**
  * Renders the base wrapper of the field.
@@ -34,10 +33,7 @@ function Field( {
 	className,
 	children
 } ) {
-	const styles = !! field.width ? { flexBasis: `${ field.width }%` } : null;
-	const fixedChildren = Children.toArray(children).map((child) => {
-		return child
-	})
+	const styles = !! field.width ? { flexBasis: `${ field.width }%` } : null
 
 	const classes = [
 		'cf-field',
@@ -75,7 +71,7 @@ function Field( {
 			{ ! hidden && (
 				<div className="cf-field__body ddd">
 					<>
-						{ fixedChildren }
+						{ children }
 					</>
 				</div>
 			) }
@@ -83,7 +79,7 @@ function Field( {
 			{ hidden && (
 				<Disabled className="cf-field__body">
 					<>
-						{ fixedChildren }
+						{ children }
 					</>
 				</Disabled>
 			) }
